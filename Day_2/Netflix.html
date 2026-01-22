@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix Clone</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Prata&display=swap');
+</style>
+
+
+  </head>
+
+  <body class="font-Montserrat">₹
+    <div class="relative bg-[url('Netflix.png')] bg-cover bg-center h-screen">
+      <div class="absolute bg-black/60"></div>
+
+      <div class="relative z-10 text-white h-full">
+        <nav class="flex items-center justify-between px-10">
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/019/956/187/small_2x/netflix-transparent-netflix-free-free-png.png"
+            class="w-50 cursor-pointer"
+          />
+
+          <div class="flex justify-center items-center gap-4">
+            <select
+              class="bg-transparent border border-white px-4 py-2 rounded-sm cursor-pointer"
+            >
+              <option class="text-black">English</option>
+              <option class="text-black">Hindi</option>
+            </select>
+
+            <button class="bg-red-600 px-7 py-2 rounded-sm cursor-pointer">Sign In</button>
+          </div>
+        </nav>
+
+        <div
+          class="flex flex-col items-center justify-center text-center h-[80%] px-4"
+        >
+          <h1 class="text-5xl font-bold mb-4">
+            Unlimited movies, TV <br />shows and more
+          </h1>
+
+          <h2 class="text-xl mb-4">Watch anywhere. Cancel anytime.</h2>
+
+          <p class="mb-6 text-lg">
+            Ready to watch? Enter your email to create or restart <br> your
+            membership.
+          </p>
+
+          <div class="flex gap-2">
+            <input
+              type="email"
+              placeholder="Email address"
+              class="px-4 py-3 w-72 text-black outline-none bg-gray-200"
+            />
+            <button class="bg-red-600 px-6 py-3 font-semibold cursor-pointer">
+              Get Started →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
