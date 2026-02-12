@@ -22,7 +22,7 @@ function Hero() {
 
         <div className="space-x-4">
           <button className="bg-white text-black px-8 py-3 rounded font-semibold hover:bg-gray-200 transition">
-            ▶ Play
+            Play
           </button>
 
           <button className="bg-gray-700/80 px-8 py-3 rounded font-semibold hover:bg-gray-600 transition">
