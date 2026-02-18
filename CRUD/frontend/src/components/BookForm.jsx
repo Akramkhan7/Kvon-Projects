@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const BookForm = () => {
   const [BookName, setBookName] = useState("");
@@ -18,7 +19,12 @@ const BookForm = () => {
       PublishDate,
     };
 
-    console.log(formData);
+    try {
+    const response = await axios.post(
+      "http://localhost:8000/books", formData
+    )
+
+    console.log("server response : ", response);
 
 
   setBookName("");
@@ -27,9 +33,11 @@ const BookForm = () => {
   setSellingPrice("");
   setPublishDate("");
 
-  };
+  }catch(err){
+    console.log(err);
+  }
 
-
+  }
   return (
     <form
       onSubmit={handleFormSubmit}
