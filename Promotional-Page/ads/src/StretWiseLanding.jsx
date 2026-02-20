@@ -331,53 +331,50 @@ const StretWiseFixed = () => {
       </section>
 
       {/* ================= FINAL CTA SECTION (NEW) ================= */}
-      <section className="py-24 px-6 bg-[#f6f8fb] flex justify-center">
-        <div className="relative w-full max-w-5xl rounded-3xl bg-linear-to-br from-[#0f172a] to-[#1e293b] text-white px-12 py-16 overflow-hidden">
-          {/* Subtle Glow Background */}
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+     <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#f6f8fb] flex justify-center">
+  <div className="relative w-full max-w-5xl rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white px-6 sm:px-10 md:px-12 py-10 sm:py-14 md:py-16 overflow-hidden">
+    
+    {/* Glow Background */}
+    <div className="absolute -top-20 -right-20 w-60 sm:w-72 h-60 sm:h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+    <div className="absolute -bottom-20 -left-20 w-60 sm:w-72 h-60 sm:h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-            {/* Left Text */}
-            <div>
-              <h2 className="text-4xl font-semibold leading-tight">
-                Ready to Ride? Download Now.
-              </h2>
+    <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
+      
+      {/* LEFT */}
+      <div className="text-center md:text-left max-w-lg">
+        
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
+          Ready to Ride? Download Now.
+        </h2>
 
-              <p className="text-gray-300 mt-4 max-w-md">
-                Book rides instantly, track drivers in real-time, and move
-                smarter every day.
-              </p>
+        <p className="text-gray-300 mt-4 text-sm sm:text-base">
+          Book rides instantly, track drivers in real-time, and move smarter every day.
+        </p>
 
-              <div className="flex gap-5 mt-10 flex-wrap">
-                {/* iOS Version */}
-                <button className="group relative px-6 py-3 rounded-2xl text-white bg-transparent border border-white/30  font-semibold overflow-hidden transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">
-                  <span className="relative z-10 flex items-center gap-2">
-                    iOS 
-                  </span>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
+          
+          <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900">
+            iOS 
+          </button>
 
-               
-                </button>
+          <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900">
+            Android 
+          </button>
 
-                {/* Android Version */}
-                <button className="group relative px-6 py-3 rounded-2xl border border-white/30 text-white font-semibold overflow-hidden transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">
-                  <span className="relative z-10 flex items-center gap-2">
-                    Android 
-                    
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Right QR */}
-            <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20">
-              <div className="w-32 h-32 bg-white rounded-xl flex items-center justify-center text-black font-semibold">
-                QR
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+      </div>
+
+      {/* RIGHT QR */}
+      <div className="bg-white/10 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/20">
+        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-xl flex items-center justify-center text-black font-semibold">
+          QR
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-slate-900 text-white py-6 px-6 text-sm">
