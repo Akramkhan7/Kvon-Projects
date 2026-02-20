@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Check,
   X,
-  Star,
   ShieldCheck,
   Bike,
   Car,
@@ -12,7 +11,6 @@ import {
   Smartphone,
   QrCode,
 } from "lucide-react";
-import { Mail, Phone, Facebook, Instagram, Linkedin } from "lucide-react";
 
 import promoBg from "./assets/promotionalBg.jpeg";
 import LiveFareCard from "./LiveFareCard";
