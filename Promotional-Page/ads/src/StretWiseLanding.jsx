@@ -41,17 +41,17 @@ const StretWiseFixed = () => {
           <div className="hidden md:flex items-center gap-10 text-sm font-semibold text-slate-700">
             <a href="#" className="relative group">
               Safety
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
             <a href="#" className="relative group">
               Rates
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
 
             <a href="#" className="relative group">
               Drive with Us
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
           </div>
 
@@ -102,7 +102,7 @@ const StretWiseFixed = () => {
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section className="bg-gradient-to-b from-white to-emerald-50 py-16 md:py-20 px-6">
+      <section className="bg-linear-to-b from-white to-emerald-50 py-16 md:py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
             Powerful Features Built For Smart Cities
@@ -171,7 +171,7 @@ const StretWiseFixed = () => {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-100 to-orange-100 p-10 rounded-3xl shadow-lg">
+          <div className="bg-linear-to-br from-emerald-100 to-orange-100 p-10 rounded-3xl shadow-lg">
             <h3 className="text-xl font-bold mb-4">
               Built For Cities, Not Just Riders
             </h3>
@@ -334,7 +334,7 @@ const StretWiseFixed = () => {
 
       {/* ================= FINAL CTA SECTION (NEW) ================= */}
       <section className="py-24 px-6 bg-[#f6f8fb] flex justify-center">
-        <div className="relative w-full max-w-5xl rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white px-12 py-16 overflow-hidden">
+        <div className="relative w-full max-w-5xl rounded-3xl bg-linear-to-br from-[#0f172a] to-[#1e293b] text-white px-12 py-16 overflow-hidden">
           {/* Subtle Glow Background */}
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
@@ -401,7 +401,7 @@ const StretWiseFixed = () => {
 
       {/* ================= MODAL ================= */}
       {showContact && (
-        <div className="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-100 bg-slate-900/40 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-300">
           {/* Main Modal Container */}
           <div className="max-w-5xl w-full bg-white/95 backdrop-blur-2xl rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 grid md:grid-cols-2 overflow-hidden relative transform transition-all scale-100 animate-in zoom-in-95 duration-300">
             {/* Close Button */}
@@ -419,10 +419,10 @@ const StretWiseFixed = () => {
                   <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
                   Partner with us
                 </div>
-                <h2 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                   Get in Touch
                 </h2>
-                <p className="text-slate-500 font-medium mt-2 text-sm">
+                <p className="text-slate-500  mt-2 text-sm">
                   Ready to transform your city's mobility? Let's build the
                   future together.
                 </p>
@@ -490,7 +490,7 @@ const StretWiseFixed = () => {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 blur-[80px] rounded-full mix-blend-screen pointer-events-none"></div>
 
               <div className="relative z-10 w-full max-w-sm flex flex-col items-center">
-                <h3 className="text-3xl font-black mb-2 tracking-tight">
+                <h3 className="text-3xl font-bold mb-2 tracking-tight">
                   Get the App
                 </h3>
                 <p className="text-slate-400 text-sm font-medium mb-8">
@@ -498,7 +498,7 @@ const StretWiseFixed = () => {
                 </p>
 
                 {/* Premium QR Box */}
-                <div className="bg-white/10 p-2 rounded-[2rem] backdrop-blur-md border border-white/20 shadow-2xl mb-8 group cursor-pointer hover:bg-white/20 transition-all duration-500">
+                <div className="bg-white/10 p-2 rounded-4xl backdrop-blur-md border border-white/20 shadow-2xl mb-8 group cursor-pointer hover:bg-white/20 transition-all duration-500">
                   <div className="bg-white p-5 rounded-3xl group-hover:scale-[0.98] transition-transform">
                     <QrCode
                       size={140}
