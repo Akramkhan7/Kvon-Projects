@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
   const slides = [
@@ -9,96 +9,32 @@ const App = () => {
   ];
 
   const [index, setIndex] = useState(0);
-  const [showLogin, setShowLogin] = useState(false);
 
-  const nextSlide = () => {
-    if (index === slides.length - 1) {
-      setShowLogin(true);
-    } else {
-      setIndex(index + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-    }
-  };
-
-  if (showLogin) {
-    return <LoginPage />;
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      if (index < slides.length - 1) {
+        setIndex(index + 1);
+      }
+    }, 2000);
+  }, [index]);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-
       <div className="w-[350px] overflow-hidden rounded-xl shadow-lg relative">
-
         <div
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
-
           {slides.map((slide, i) => (
             <img
               key={i}
               src={slide}
               alt="slide"
-              className="w-[350px] h-[250px] object-cover flex-shrink-0"
+              className="w-87.5 h-[250px] object-cover shrink-0"
             />
           ))}
-
         </div>
-
-       {index > 0 && (
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black text-white px-3 py-1 rounded"
-          >
-            Prev
-          </button>
-        )}
-
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-black text-white px-3 py-1 rounded"
-        >
-          Next
-        </button>
-
       </div>
-
-    </div>
-  );
-};
-
-
-const LoginPage = () => {
-  return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-
-      <div className="bg-white p-8 rounded-xl shadow-lg w-[320px]">
-
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-2 mb-4 rounded"
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full border p-2 mb-4 rounded"
-        />
-
-        <button className="w-full bg-blue-500 text-white py-2 rounded">
-          Login
-        </button>
-
-      </div>
-
     </div>
   );
 };
