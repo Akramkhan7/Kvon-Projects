@@ -74,48 +74,52 @@ const Visa = () => {
     },
   ];
 
-const popularCountries = [
-  {
-    country: "United Arab Emirates",
-    flag: "🇦🇪",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=600",
-    type: "E-VISA",
-    date: "14 Apr",
-    processed: "10k+",
-    price: "6,950",
-    color: "from-emerald-500 to-green-600",
-  },
-  {
-    country: "Thailand",
-    flag: "🇹🇭",
-    image: "https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8fDA%3D",
-    type: "DAC",
-    date: "10 Apr",
-    processed: "5k+",
-    price: "0",
-    color: "from-blue-600 to-red-600",
-  },
-  {
-    country: "Vietnam",
-    flag: "🇻🇳",
-    image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=600",
-    type: "E-VISA",
-    date: "14 Apr",
-    processed: "2k+",
-    price: "2,500",
-    color: "from-red-600 to-yellow-500",
-  },
-  {
-    country: "Indonesia",
-    flag: "🇮🇩",
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=600",
-    type: "EVOA",
-    date: "10 Apr",
-    processed: "1k+",
-    price: "3,000",
-    color: "from-red-600 to-slate-100",
-  },
-];
+  const popularCountries = [
+    {
+      country: "United Arab Emirates",
+      flag: "🇦🇪",
+      image:
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=600",
+      type: "E-VISA",
+      date: "14 Apr",
+      processed: "10k+",
+      price: "6,950",
+      color: "from-emerald-500 to-green-600",
+    },
+    {
+      country: "Thailand",
+      flag: "🇹🇭",
+      image:
+        "https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGhhaWxhbmR8ZW58MHx8MHx8fDA%3D",
+      type: "DAC",
+      date: "10 Apr",
+      processed: "5k+",
+      price: "0",
+      color: "from-blue-600 to-red-600",
+    },
+    {
+      country: "Vietnam",
+      flag: "🇻🇳",
+      image:
+        "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=600",
+      type: "E-VISA",
+      date: "14 Apr",
+      processed: "2k+",
+      price: "2,500",
+      color: "from-red-600 to-yellow-500",
+    },
+    {
+      country: "Indonesia",
+      flag: "🇮🇩",
+      image:
+        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=600",
+      type: "EVOA",
+      date: "10 Apr",
+      processed: "1k+",
+      price: "3,000",
+      color: "from-red-600 to-slate-100",
+    },
+  ];
 
   const europeCountries = [
     {
@@ -244,57 +248,64 @@ const popularCountries = [
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {popularCountries.map((c, i) => (
-  <motion.div
-    key={i}
-    whileHover={{ y: -5 }}
-    className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm group"
-  >
-    {/* ADDED IMAGE SECTION */}
-    <div className="h-35 w-full overflow-hidden relative">
-      <img 
-        src={c.image} 
-        alt={c.country} 
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-      <span className="absolute bottom-3 left-4 text-2xl">{c.flag}</span>
-    </div>
+              <motion.div
+                key={i}
+                whileHover={{ y: -5 }}
+                className="bg-white rounded-4xl overflow-hidden border border-slate-100 shadow-sm group"
+              >
+                {/* ADDED IMAGE SECTION */}
+                <div className="h-35 w-full overflow-hidden relative">
+                  <img
+                    src={c.image}
+                    alt={c.country}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <span className="absolute bottom-3 left-4 text-2xl">
+                    {c.flag}
+                  </span>
+                </div>
 
-    <div className="p-6">
-      <div className="flex justify-between items-start mb-3">
-        {/* We moved the flag to the image, so we just keep the badge here */}
-        <span className="bg-blue-50 text-blue-600 text-[10px] font-black px-2 py-1 rounded-md flex items-center gap-1">
-          {c.type} <Info size={10} />
-        </span>
-      </div>
-      
-      <h3 className="text-lg font-bold text-slate-800 mb-2">
-        {c.country}
-      </h3>
-      
-      {/* ... rest of your code (Calendar, processed text, price, etc.) ... */}
-      <div className="space-y-3 mb-2">
-        <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-          <Calendar size={14} className="text-blue-500" /> Get visa by{" "}
-          <span className="text-slate-900 font-bold">{c.date}</span>
-        </div>
-        <p className="text-[11px] font-bold text-slate-400 uppercase tracking-tighter">
-          {c.processed} Visas Processed
-        </p>
-      </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    {/* We moved the flag to the image, so we just keep the badge here */}
+                    <span className="bg-blue-50 text-blue-600 text-[10px] font-black px-2 py-1 rounded-md flex items-center gap-1">
+                      {c.type} <Info size={10} />
+                    </span>
+                  </div>
 
-      <div className="pt-2 border-t border-slate-50 flex justify-between items-center">
-        <div>
-          <p className="text-[10px] font-black text-slate-300 uppercase">Starting From</p>
-          <p className="text-lg font-black text-slate-900">₹{c.price}</p>
-        </div>
-        <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
-          <ChevronRight size={20} />
-        </div>
-      </div>
-    </div>
-  </motion.div>
-))}
+                  <h3 className="text-lg font-bold text-slate-800 mb-2">
+                    {c.country}
+                  </h3>
+
+                  {/* ... rest of your code (Calendar, processed text, price, etc.) ... */}
+                  <div className="space-y-3 mb-2">
+                    <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+                      <Calendar size={14} className="text-blue-500" /> Get visa
+                      by{" "}
+                      <span className="text-slate-900 font-bold">{c.date}</span>
+                    </div>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-tighter">
+                      {c.processed} Visas Processed
+                    </p>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-50 flex justify-between items-center">
+                    <div>
+                      <p className="text-[10px] font-black text-slate-300 uppercase">
+                        Starting From
+                      </p>
+                      <p className="text-lg font-black text-slate-900">
+                        ₹{c.price}
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <ChevronRight size={20} />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
 

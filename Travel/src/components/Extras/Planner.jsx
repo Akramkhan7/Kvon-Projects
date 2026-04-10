@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Calendar,
   Compass,
@@ -7,183 +7,261 @@ import {
   Sparkles,
   MapPin,
   Wand2,
+  IndianRupee,
+  Clock3,
+  Star,
+  ShieldCheck,
+  Loader,
+  X,
+  ChevronRight
+} from "lucide-react";
+import {
+  Umbrella,
+  Mountain,
+  Utensils,
+  PawPrint,
+  Landmark,
+  Music,
+  ShoppingBag,
+  HeartPulse,
 } from "lucide-react";
 
+// --- Mock Data ---
+const travelStyles = ["Adventure", "Luxury", "Budget", "Balanced", "Relaxation"];
+const groupTypes = ["Solo", "Couple", "Family", "Friends"];
+const suggestions = ["Bali", "Paris", "Dubai", "Tokyo", "Switzerland"];
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+const interests = [
+  { label: "Beaches", icon: Umbrella },
+  { label: "Mountains", icon: Mountain },
+  { label: "Food & Culture", icon: Utensils },
+  { label: "Wildlife", icon: PawPrint },
+  { label: "History", icon: Landmark },
+  { label: "Nightlife", icon: Music },
+  { label: "Shopping", icon: ShoppingBag },
+  { label: "Wellness", icon: HeartPulse },
+];
+
+const trending = [
+  { place: "Bali", tag: "Trending", img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=60", rating: "4.9" },
+  { place: "Santorini", tag: "Hot Pick", img: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&q=60", rating: "4.8" },
+  { place: "Maldives", tag: "Luxury", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&q=60", rating: "4.9" },
+  { place: "Kyoto", tag: "Cultural", img: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=400&q=60", rating: "4.7" },
+];
+
 const Planner = () => {
+  // --- UI State ---
   const [destination, setDestination] = useState("");
   const [days, setDays] = useState("");
   const [style, setStyle] = useState("Balanced");
   const [group, setGroup] = useState("Solo");
+  const [budget, setBudget] = useState(25000);
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const [selectedInterests, setSelectedInterests] = useState([]);
+  const [showItinerary, setShowItinerary] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const travelStyles = ["Adventure", "Luxury", "Budget", "Balanced", "Relaxation"];
-  const groupTypes = ["Solo", "Couple", "Family", "Friends"];
+  // --- Handlers ---
+  const toggleInterest = (label) =>
+    setSelectedInterests((prev) =>
+      prev.includes(label) ? prev.filter((i) => i !== label) : [...prev, label]
+    );
 
-  const suggestions = ["Bali", "Paris", "Dubai", "Tokyo", "Switzerland"];
+  const handleGenerate = () => {
+    if (!destination || !days) return alert("Please fill in destination and days");
+    setLoading(true);
+    // Simulate loading for UI feel
+    setTimeout(() => {
+      setLoading(false);
+      setShowItinerary(true);
+    }, 1500);
+  };
 
-  return (
-    <div className="min-h-screen bg-slate-50 px-6 py-5">
-      <div className="max-w-6xl mx-auto">
-
-        {/* HEADER */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-9"
-        >
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles size={14} /> AI Trip Planner
+  // --- Render Result View ---
+  if (showItinerary) {
+    return (
+      <div className="min-h-screen bg-slate-50 px-6 py-12 ">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900">{destination}</h1>
+              <p className="text-slate-500">{days} Days • {style} • {group}</p>
+            </div>
+            <button 
+              onClick={() => setShowItinerary(false)}
+              className="p-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition"
+            >
+              <X size={20} className="text-slate-600" />
+            </button>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-            Design Your Perfect <span className="text-blue-500">Journey</span>
-          </h1>
+          <div className="space-y-4">
+            {[...Array(Number(days))].map((_, i) => (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                key={i} 
+                className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm"
+              >
+                <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                  <span className="bg-blue-600 text-white px-2 py-0.5 rounded text-xs">Day {i + 1}</span>
+                  Exploring the Essence
+                </h3>
+                <div className="space-y-3 text-sm text-slate-600">
+                  <div className="flex gap-4"><span className="w-16 font-semibold text-slate-400">09:00 AM</span> <p>Morning sightseeing and breakfast at a local cafe.</p></div>
+                  <div className="flex gap-4"><span className="w-16 font-semibold text-slate-400">01:00 PM</span> <p>Lunch followed by cultural immersion activities.</p></div>
+                  <div className="flex gap-4"><span className="w-16 font-semibold text-slate-400">07:00 PM</span> <p>Evening leisure walk and dinner.</p></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-          <p className="text-gray-500 mt-2 max-w-xl mx-auto">
-            Tell us your vibe, and we’ll craft a smart, day-by-day itinerary just for you.
-          </p>
-        </motion.div>
+  // --- Render Form View ---
+  return (
+    <div className=" bg-white px-6 py-10">
+      <div className="max-w-6xl mx-auto">
+        
+        {/* Header */}
+        <div className="mb-5">
+          <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-3">
+            <Sparkles size={14} /> AI Planner
+          </div>
+          <h1 className="text-4xl font-bold text-slate-900 mb-3">Plan your next <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-300">Trip.</span></h1>
+          <p className="text-slate-500 text-sm">Fill in the details below to generate a professional itinerary.</p>
+        </div>
 
-        {/* MAIN CARD */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-white p-6 md:p-10 rounded-3xl border border-blue-200 "
-        >
-          {/* QUICK SUGGESTIONS */}
-          <div className="mb-4">
-            <p className="text-xs text-gray-400 mb-2 font-semibold uppercase">
-              Popular Picks
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {suggestions.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setDestination(s)}
-                  className="px-3 py-1.5 text-sm bg-slate-100 hover:bg-blue-100 hover:text-blue-600 rounded-full transition"
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          
+          {/* Main Inputs */}
+          <div className="lg:col-span-2 space-y-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Destination */}
+              <div className="space-y-2">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Destination</label>
+                <div className="flex items-center bg-slate-50 border border-slate-100 rounded-lg px-4 py-3 focus-within:border-blue-500 transition">
+                  <MapPin size={18} className="text-slate-400 mr-3" />
+                  <input
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    placeholder="e.g. Switzerland"
+                    className="w-full bg-transparent outline-none text-sm font-medium"
+                  />
+                </div>
+              </div>
+
+              {/* Days */}
+              <div className="space-y-2">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Duration (Days)</label>
+                <div className="flex items-center bg-slate-50 border border-slate-100 rounded-lg px-4 py-3">
+                  <Calendar size={18} className="text-slate-400 mr-3" />
+                  <input
+                    type="number"
+                    value={days}
+                    onChange={(e) => setDays(e.target.value)}
+                    placeholder="1-30"
+                    className="w-full bg-transparent outline-none text-sm font-medium"
+                  />
+                </div>
+              </div>
+
+              {/* Travel Style */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Style</label>
+                <select 
+                  value={style} 
+                  onChange={(e) => setStyle(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-100 rounded-lg px-4 py-3 text-sm font-medium outline-none"
                 >
-                  {s}
-                </button>
+                  {travelStyles.map(s => <option key={s}>{s}</option>)}
+                </select>
+              </div>
+
+              {/* Travelers */}
+              <div className="space-y-2">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Travelers</label>
+                <select 
+                  value={group} 
+                  onChange={(e) => setGroup(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-100 rounded-lg px-4 py-3 text-sm font-medium outline-none"
+                >
+                  {groupTypes.map(g => <option key={g}>{g}</option>)}
+                </select>
+              </div>
+            </div>
+
+            {/* Interests Chips */}
+            <div className="space-y-3">
+  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+    What interests you?
+  </label>
+
+  <div className="flex flex-wrap gap-2 mt-2">
+    {interests.map(({ label, icon: Icon }) => (
+      <button
+        key={label}
+        onClick={() => toggleInterest(label)}
+        className={`flex items-center gap-2 px-4 py-2 text-xs font-medium rounded-full border transition-all ${
+          selectedInterests.includes(label)
+            ? "bg-slate-900 text-white border-slate-900"
+            : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+        }`}
+      >
+        <Icon size={14} /> {label}
+      </button>
+    ))}
+  </div>
+</div>
+
+            {/* Budget Slider */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-end">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Max Budget (Per Person)</label>
+                <span className="text-lg font-bold text-blue-600">₹{budget.toLocaleString()}</span>
+              </div>
+              <input
+                type="range" min={5000} max={150000} step={1000}
+                value={budget}
+                onChange={(e) => setBudget(Number(e.target.value))}
+                className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
+              />
+            </div>
+
+            <button
+              onClick={handleGenerate}
+              disabled={loading}
+              className="w-full py-4 bg-slate-900 text-white rounded-lg font-bold text-sm hover:bg-slate-800 transition flex items-center justify-center gap-3 shadow-xl shadow-slate-200"
+            >
+              {loading ? <Loader className="animate-spin" size={18} /> : <><Wand2 size={18} /> Generate Itinerary</>}
+            </button>
+          </div>
+
+          {/* Sidebar / Trending */}
+          <div className="">
+            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-widest">Trending Now</h3>
+            <div className="grid grid-cols-1 gap-4">
+              {trending.map((t, i) => (
+                <div 
+                  key={i} 
+                  onClick={() => setDestination(t.place)}
+                  className="group relative h-25 rounded-xl overflow-hidden cursor-pointer border border-slate-100"
+                >
+                  <img src={t.img} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt={t.place} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex flex-col justify-center px-4">
+                    <span className="text-white font-bold text-sm">{t.place}</span>
+                    <span className="text-white/70 text-[10px] uppercase font-bold tracking-tighter">{t.tag}</span>
+                  </div>
+                </div>
               ))}
             </div>
+
+           
           </div>
 
-          {/* INPUT GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
-
-            {/* Destination */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-gray-400 uppercase">
-                Destination
-              </label>
-              <div className="flex items-center bg-slate-50  rounded-2xl px-4 py-3 focus-within:border-blue-500">
-                <MapPin size={18} className="text-blue-500 mr-3" />
-                <input
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  placeholder="Where do you want to go?"
-                  className="w-full bg-transparent outline-none"
-                />
-              </div>
-            </div>
-
-            {/* Days */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-gray-400 uppercase">
-                Duration
-              </label>
-              <div className="flex items-center bg-slate-50  rounded-2xl px-4 py-3  focus:border-blue-500">
-                <Calendar size={18} className="text-blue-500 mr-3" />
-                <input
-                  type="number"
-                  value={days}
-                  onChange={(e) => setDays(e.target.value)}
-                  placeholder="How many days?"
-                  className="w-full bg-transparent outline-none"
-                />
-              </div>
-            </div>
-
-            {/* Style */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-gray-400 uppercase">
-                Travel Style
-              </label>
-              <div className="flex items-center bg-slate-50  rounded-2xl px-4 py-3">
-                <Compass size={18} className="text-blue-500 mr-3" />
-                <select
-                  value={style}
-                  onChange={(e) => setStyle(e.target.value)}
-                  className="w-full bg-transparent outline-none"
-                >
-                  {travelStyles.map((s) => (
-                    <option key={s}>{s}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {/* Group */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-gray-400 uppercase">
-                Travelers
-              </label>
-              <div className="flex items-center bg-slate-50  rounded-2xl px-4 py-3">
-                <Users size={18} className="text-blue-500 mr-3" />
-                <select
-                  value={group}
-                  onChange={(e) => setGroup(e.target.value)}
-                  className="w-full bg-transparent outline-none"
-                >
-                  {groupTypes.map((g) => (
-                    <option key={g}>{g}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* SMART PREVIEW */}
-          {(destination || days) && (
-            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-2 mb-4 text-xs text-blue-700">
-              ✨ Planning a <b>{days || "?"}-day</b> trip to{" "}
-              <b>{destination || "your destination"}</b> for a{" "}
-              <b>{group}</b> with a <b>{style}</b> vibe.
-            </div>
-          )}
-
-          {/* CTA */}
-          <motion.button
-            whileTap={{ scale: 0.97 }}
-            className=" w-[80%] bg-gradient-to-r from-blue-600 to-blue-400 text-white py-4 rounded-2xl font-semibold text-md shadow-md hover:shadow-lg transition flex items-center justify-center gap-2"
-          >
-            <Wand2 size={16} />
-            Generate Smart Itinerary
-          </motion.button>
-        </motion.div>
-
-        {/* EXTRA VALUE */}
-        <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
-          {[
-            {
-              title: "Day-wise Plan",
-              desc: "Detailed itinerary for each day.",
-            },
-            {
-              title: "Hidden Gems",
-              desc: "Discover unique local experiences.",
-            },
-            {
-              title: "Optimized Routes",
-              desc: "Save time with smart navigation.",
-            },
-          ].map((item, i) => (
-            <div key={i} className="bg-white p-5 rounded-2xl shadow-sm border border-blue-500">
-              <h4 className="font-semibold text-blue-500 mb-1">
-                {item.title}
-              </h4>
-              <p className="text-gray-500 text-sm">{item.desc}</p>
-            </div>
-          ))}
         </div>
       </div>
     </div>

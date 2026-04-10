@@ -11,10 +11,9 @@ const Footer = () => {
         - Tablet: 2 columns (sm:grid-cols-2)
         - Desktop: 4 columns (lg:grid-cols-4)
       */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-12 lg:py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
-        {/* LOGO + DESC */}
-        {/* On tablet (sm), we let this span 2 columns so it sits neatly on top of the links */}
+       
         <div className="sm:col-span-2 lg:col-span-1">
           <h2 className="text-2xl font-bold text-white tracking-wide">LOGO</h2>
           <p className="text-sm text-gray-400 mt-4 leading-relaxed max-w-sm sm:max-w-md lg:max-w-xs">
