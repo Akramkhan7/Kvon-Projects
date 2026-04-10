@@ -179,202 +179,200 @@ const StretWiseFixed = () => {
             </p>
           </div>
         </div>
-      </section>
 
-      {/* ================= HOW IT WORKS (NEW) ================= */}
-      <section className="py-16 md:py-24 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-slate-900">
-              Get Moving in 3 Easy Steps
+        {/* ================= HOW IT WORKS (NEW) ================= */}
+        <section className="py-16 md:py-25 px-6 ">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-2xl md:text-3xl font-extrabold mb-4 text-slate-900">
+                Get Moving in 3 Easy Steps
+              </h2>
+              <p className="text-slate-600 text-sm">
+                No complex sign-ups. Just open the app and ride.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 relative">
+              {/* Connecting Line for Desktop */}
+              <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-slate-200 z-0"></div>
+
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="w-20 h-20 bg-white rounded-full shadow-xl flex items-center justify-center mb-6 border-4 border-slate-50 group-hover:border-emerald-100 transition-colors">
+                  <MapPin size={32} className="text-emerald-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">1. Set Destination</h3>
+                <p className="text-sm text-slate-500">
+                  Enter your drop-off point and see your upfront fare instantly.
+                </p>
+              </div>
+
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="w-20 h-20 bg-white rounded-full shadow-xl flex items-center justify-center mb-6 border-4 border-slate-50 group-hover:border-orange-100 transition-colors">
+                  <Car size={32} className="text-orange-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">2. Choose Ride</h3>
+                <p className="text-sm text-slate-500">
+                  Pick from our fleet of bikes, autos, or premium cars nearby.
+                </p>
+              </div>
+
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="w-20 h-20 bg-white rounded-full shadow-xl flex items-center justify-center mb-6 border-4 border-slate-50 group-hover:border-emerald-100 transition-colors">
+                  <CreditCard size={32} className="text-emerald-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">3. Ride & Pay</h3>
+                <p className="text-sm text-slate-500">
+                  Enjoy a safe trip and pay seamlessly via wallet, UPI, or cash.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-1  px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-extrabold mb-4 text-slate-900">
+                A Ride for Every Need
+              </h2>
+              <p className="text-slate-600 text-sm">
+                From quick solo trips to comfortable family rides.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Bike */}
+              <div className="border border-slate-100 bg-slate-50 rounded-3xl p-7 hover:shadow-2xl hover:bg-white transition-all cursor-pointer">
+                <div className="w-13 h-13 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                  <Bike size={32} />
+                </div>
+                <h3 className="text-1xl font-black text-slate-900 mb-2">
+                  Street Bike
+                </h3>
+                <p className="text-slate-600 text-sm mb-6">
+                  Beat the traffic. Quick, affordable rides for solo travelers.
+                </p>
+                <p className="text-lg font-bold text-emerald-600">
+                  Starts at ₹20
+                </p>
+              </div>
+
+              {/* Auto */}
+              <div className="border-2 border-orange-500 bg-white shadow-xl rounded-3xl p-8 transform md:-translate-y-4 cursor-pointer relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                  Most Popular
+                </div>
+                <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
+                  <Car size={32} />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 mb-2">
+                  Street Auto
+                </h3>
+                <p className="text-slate-600 text-sm mb-6">
+                  The city classic. No haggling, straight to your destination.
+                </p>
+                <p className="text-lg font-bold text-orange-600">
+                  Starts at ₹40
+                </p>
+              </div>
+
+              {/* Prime */}
+              <div className="border border-slate-100 bg-slate-50 rounded-3xl p-6 hover:shadow-2xl hover:bg-white transition-all cursor-pointer">
+                <div className="w-12 h-12 bg-slate-200 text-slate-800 rounded-2xl flex items-center justify-center mb-6">
+                  <ShieldCheck size={28} />
+                </div>
+                <h3 className="text-1.5xl font-black text-slate-900 mb-2">
+                  Street Prime
+                </h3>
+                <p className="text-slate-600 text-sm mb-6">
+                  Top-rated drivers, extra legroom, and AC for a premium feel.
+                </p>
+                <p className="text-lg font-bold text-slate-800">
+                  Starts at ₹120
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= SAFETY & TRUST (REPLACEMENT) ================= */}
+
+        <section className="py-10 px-6  text-white">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-2xl md:text-4xl text-slate-800 font-extrabold mb-6">
+              Powering Smarter Cities
             </h2>
-            <p className="text-slate-600">
-              No complex sign-ups. Just open the app and ride.
+
+            <p className="text-slate-400 max-w-1xl mx-auto mb-12">
+              Real numbers. Real impact. Built for scale.
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Connecting Line for Desktop */}
-            <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-slate-200 z-0"></div>
-
-            <div className="relative z-10 flex flex-col items-center text-center group">
-              <div className="w-24 h-24 bg-white rounded-full shadow-xl flex items-center justify-center mb-6 border-4 border-slate-50 group-hover:border-emerald-100 transition-colors">
-                <MapPin size={32} className="text-emerald-500" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <p className="text-3xl font-extrabold text-orange-500">500K+</p>
+                <p className="text-sm text-slate-400 mt-2">Rides Completed</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">1. Set Destination</h3>
-              <p className="text-sm text-slate-500">
-                Enter your drop-off point and see your upfront fare instantly.
-              </p>
-            </div>
 
-            <div className="relative z-10 flex flex-col items-center text-center group">
-              <div className="w-24 h-24 bg-white rounded-full shadow-xl flex items-center justify-center mb-6 border-4 border-slate-50 group-hover:border-orange-100 transition-colors">
-                <Car size={32} className="text-orange-500" />
+              <div>
+                <p className="text-3xl font-extrabold text-emerald-400">98%</p>
+                <p className="text-sm text-slate-400 mt-2">On-Time Arrival</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">2. Choose Ride</h3>
-              <p className="text-sm text-slate-500">
-                Pick from our fleet of bikes, autos, or premium cars nearby.
-              </p>
-            </div>
 
-            <div className="relative z-10 flex flex-col items-center text-center group">
-              <div className="w-24 h-24 bg-white rounded-full shadow-xl flex items-center justify-center mb-6 border-4 border-slate-50 group-hover:border-emerald-100 transition-colors">
-                <CreditCard size={32} className="text-emerald-500" />
+              <div>
+                <p className="text-3xl font-extrabold text-orange-500">4.9★</p>
+                <p className="text-sm text-slate-400 mt-2">Average Rating</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">3. Ride & Pay</h3>
-              <p className="text-sm text-slate-500">
-                Enjoy a safe trip and pay seamlessly via wallet, UPI, or cash.
-              </p>
+
+              <div>
+                <p className="text-3xl font-extrabold text-emerald-400">120+</p>
+                <p className="text-sm text-slate-400 mt-2">
+                  Smart Routes Optimized
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <section className="py-16 sm:py-10 md:py-1 px-4 sm:px-6  flex justify-center">
+          <div className="relative w-full max-w-5xl rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white px-6 sm:px-10 md:px-12 py-10 sm:py-14 md:py-16 overflow-hidden">
+            {/* Glow Background */}
+            <div className="absolute -top-20 -right-20 w-60 sm:w-72 h-60 sm:h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-20 -left-20 w-60 sm:w-72 h-60 sm:h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
+              {/* LEFT */}
+              <div className="text-center md:text-left max-w-lg">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
+                  Ready to Ride? Download Now.
+                </h2>
+
+                <p className="text-gray-300 mt-4 text-sm sm:text-base">
+                  Book rides instantly, track drivers in real-time, and move
+                  smarter every day.
+                </p>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
+                  <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900">
+                    iOS
+                  </button>
+
+                  <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900">
+                    Android
+                  </button>
+                </div>
+              </div>
+
+              {/* RIGHT QR */}
+              <div className="bg-white/10 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/20">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-xl flex items-center justify-center text-black font-semibold">
+                  QR
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
-
-      {/* ================= OUR FLEET (NEW) ================= */}
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-slate-900">
-              A Ride for Every Need
-            </h2>
-            <p className="text-slate-600">
-              From quick solo trips to comfortable family rides.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Bike */}
-            <div className="border border-slate-100 bg-slate-50 rounded-3xl p-8 hover:shadow-2xl hover:bg-white transition-all cursor-pointer">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                <Bike size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-2">
-                Street Bike
-              </h3>
-              <p className="text-slate-600 text-sm mb-6">
-                Beat the traffic. Quick, affordable rides for solo travelers.
-              </p>
-              <p className="text-lg font-bold text-emerald-600">
-                Starts at ₹20
-              </p>
-            </div>
-
-            {/* Auto */}
-            <div className="border-2 border-orange-500 bg-white shadow-xl rounded-3xl p-8 transform md:-translate-y-4 cursor-pointer relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
-                Most Popular
-              </div>
-              <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                <Car size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-2">
-                Street Auto
-              </h3>
-              <p className="text-slate-600 text-sm mb-6">
-                The city classic. No haggling, straight to your destination.
-              </p>
-              <p className="text-lg font-bold text-orange-600">Starts at ₹40</p>
-            </div>
-
-            {/* Prime */}
-            <div className="border border-slate-100 bg-slate-50 rounded-3xl p-8 hover:shadow-2xl hover:bg-white transition-all cursor-pointer">
-              <div className="w-16 h-16 bg-slate-200 text-slate-800 rounded-2xl flex items-center justify-center mb-6">
-                <ShieldCheck size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-2">
-                Street Prime
-              </h3>
-              <p className="text-slate-600 text-sm mb-6">
-                Top-rated drivers, extra legroom, and AC for a premium feel.
-              </p>
-              <p className="text-lg font-bold text-slate-800">Starts at ₹120</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= SAFETY & TRUST (REPLACEMENT) ================= */}
-      <section className="py-24 px-6  text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl text-slate-800 font-extrabold mb-6">
-            Powering Smarter Cities
-          </h2>
-
-          <p className="text-slate-400 max-w-2xl mx-auto mb-16">
-            Real numbers. Real impact. Built for scale.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            <div>
-              <p className="text-4xl font-extrabold text-orange-500">500K+</p>
-              <p className="text-sm text-slate-400 mt-2">Rides Completed</p>
-            </div>
-
-            <div>
-              <p className="text-4xl font-extrabold text-emerald-400">98%</p>
-              <p className="text-sm text-slate-400 mt-2">On-Time Arrival</p>
-            </div>
-
-            <div>
-              <p className="text-4xl font-extrabold text-orange-500">4.9★</p>
-              <p className="text-sm text-slate-400 mt-2">Average Rating</p>
-            </div>
-
-            <div>
-              <p className="text-4xl font-extrabold text-emerald-400">120+</p>
-              <p className="text-sm text-slate-400 mt-2">
-                Smart Routes Optimized
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= FINAL CTA SECTION (NEW) ================= */}
-     <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#f6f8fb] flex justify-center">
-  <div className="relative w-full max-w-5xl rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white px-6 sm:px-10 md:px-12 py-10 sm:py-14 md:py-16 overflow-hidden">
-    
-    {/* Glow Background */}
-    <div className="absolute -top-20 -right-20 w-60 sm:w-72 h-60 sm:h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
-    <div className="absolute -bottom-20 -left-20 w-60 sm:w-72 h-60 sm:h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
-
-    <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-12">
-      
-      {/* LEFT */}
-      <div className="text-center md:text-left max-w-lg">
-        
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
-          Ready to Ride? Download Now.
-        </h2>
-
-        <p className="text-gray-300 mt-4 text-sm sm:text-base">
-          Book rides instantly, track drivers in real-time, and move smarter every day.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
-          
-          <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900">
-            iOS 
-          </button>
-
-          <button className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900">
-            Android 
-          </button>
-
-        </div>
-      </div>
-
-      {/* RIGHT QR */}
-      <div className="bg-white/10 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/20">
-        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-xl flex items-center justify-center text-black font-semibold">
-          QR
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-slate-900 text-white py-6 px-6 text-sm">

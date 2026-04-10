@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+
+/* Import the font from Google Fonts */
+
+/* Apply it to the entire body */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure headings and buttons also inherit the font */
+h1, h2, h3, h4, h5, h6, button, input, textarea {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Utility classes (like Tailwind) */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-floatSlow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
