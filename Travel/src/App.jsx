@@ -17,6 +17,8 @@ import Currency from "./components/Services/Currency";
 import Deals from "./components/Extras/Deals";
 import Planner from "./components/Extras/Planner";
 import Insurance from "./components/Extras/Insurance";
+import Testimonials from "./Pages/Testimonials";
+import About from "./Pages/AboutUs";
 
 const App = () => {
   return (
@@ -40,6 +42,8 @@ const App = () => {
             <Route path="/deals" element={<Deals />} />
             <Route path="/planner" element={<Planner />} />
             <Route path="/insurance" element={<Insurance />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/about" element={<About />} />
             
           </Routes>
         </div>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Calendar,
   Compass,
+  PlaneTakeoff,
   Users,
   Sparkles,
   MapPin,
@@ -13,6 +14,7 @@ import {
   ShieldCheck,
   Loader,
   X,
+  Info,
   ChevronRight
 } from "lucide-react";
 import {
@@ -123,15 +125,15 @@ const Planner = () => {
 
   // --- Render Form View ---
   return (
-    <div className=" bg-white px-6 py-10">
+    <div className=" bg-white px-6 py-6">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
         <div className="mb-5">
           <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-3">
-            <Sparkles size={14} /> AI Planner
+             AI Planner
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">Plan your next <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-300">Trip.</span></h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2">Plan your next <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-300">Trip.</span></h1>
           <p className="text-slate-500 text-sm">Fill in the details below to generate a professional itinerary.</p>
         </div>
 
@@ -262,8 +264,112 @@ const Planner = () => {
            
           </div>
 
+
+
         </div>
+
+        <hr className='mt-5 text-gray-100'/>
+{/* ====== EXTRA USEFUL TRAVEL CONTENT ====== */}
+<div className="mt-6 space-y-10">
+
+  {/* COST BREAKDOWN */}
+  <div>
+    <h3 className="text-xs font-black text-slate-900 uppercase tracking-[0.2em] mb-4">
+      Estimated Cost Breakdown
+    </h3>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {[
+        { label: "Flights", price: "₹12k - ₹25k" },
+        { label: "Stay", price: "₹3k / night" },
+        { label: "Food", price: "₹1k / day" },
+        { label: "Transport", price: "₹500 - ₹2k" },
+      ].map((item, i) => (
+        <div key={i} className="bg-white border border-slate-100 rounded-2xl p-5">
+          <p className="text-xs text-slate-400 mb-1">{item.label}</p>
+          <p className="text-sm font-bold text-slate-800">{item.price}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* TRAVEL TIPS */}
+  <div>
+    <h3 className="text-xs font-black text-slate-900 uppercase tracking-[0.2em] mb-4">
+      Things to Know Before You Go
+    </h3>
+
+    <div className="grid md:grid-cols-2 gap-4">
+      {[
+        "Always carry local currency for small vendors.",
+        "Download offline maps before your trip.",
+        "Keep digital copies of passport & visa.",
+        "Check local transport apps (Uber, Metro, etc).",
+      ].map((tip, i) => (
+        <div key={i} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl">
+          <Info size={16} className="text-blue-500 mt-1" />
+          <p className="text-sm text-slate-600">{tip}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* TRANSPORT OPTIONS */}
+  <div>
+    <h3 className="text-xs font-black text-slate-900 uppercase tracking-[0.2em] mb-4">
+      Local Transport
+    </h3>
+
+    <div className="flex flex-wrap gap-3">
+      {["Metro", "Taxi", "Bike Rental", "Bus"].map((t, i) => (
+        <span
+          key={i}
+          className="px-4 py-2 text-xs font-bold bg-blue-50 text-blue-600 rounded-full"
+        >
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  {/* STAY OPTIONS */}
+  <div>
+    <h3 className="text-xs font-black text-slate-900 uppercase tracking-[0.2em] mb-4">
+      Stay Options
+    </h3>
+
+    <div className="grid md:grid-cols-3 gap-4">
+      {[
+        { type: "Budget", desc: "Hostels & Guesthouses" },
+        { type: "Mid-range", desc: "3★ Hotels & Airbnb" },
+        { type: "Luxury", desc: "5★ Resorts & Villas" },
+      ].map((s, i) => (
+        <div key={i} className="bg-white border border-slate-100 rounded-2xl p-5">
+          <p className="text-sm font-bold text-slate-800">{s.type}</p>
+          <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* CONNECTIVITY */}
+  <div>
+    <h3 className="text-xs font-black text-slate-900 uppercase tracking-[0.2em] mb-4">
+      Connectivity
+    </h3>
+
+    <div className="bg-slate-50 p-5 rounded-2xl flex items-start gap-3">
+      <PlaneTakeoff size={18} className="text-blue-500 mt-1" />
+      <p className="text-sm text-slate-600">
+        Get a local SIM or eSIM for better data rates. Airport kiosks usually offer tourist packs with 5–20GB data.
+      </p>
+    </div>
+  </div>
+
+</div>
       </div>
+
+      
     </div>
   );
 };
