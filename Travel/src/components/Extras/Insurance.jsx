@@ -92,7 +92,7 @@ const Insurance = () => {
     </div>
 
     {/* Interactive Search Bar */}
-    <div className="bg-white p-1 rounded-[2rem] shadow-2xl flex flex-col lg:flex-row items-center gap-0 border border-white/10">
+    <div className="bg-white p-1 rounded-4xl shadow-2xl flex flex-col lg:flex-row items-center gap-0 border border-white/10">
       
       {/* Destination Select */}
       <div className="flex-1 w-full text-left px-5 py-4 border-r border-slate-100 group cursor-pointer hover:bg-slate-50/50 transition-colors rounded-l-[1.8rem]">
@@ -144,7 +144,7 @@ const Insurance = () => {
       </div>
 
       {/* Submit Button */}
-      <button className="w-full lg:w-auto bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-xs transition-all m-1 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 active:scale-[0.98]">
+      <button className="w-full lg:w-auto bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-3xl font-black uppercase tracking-[0.2em] text-xs transition-all m-1 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 active:scale-[0.98]">
           Explore Plans <ArrowRight size={15} />
       </button>
     </div>
@@ -162,7 +162,7 @@ const Insurance = () => {
   animate="visible"
         className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
           {metrics.map((m, i) => (
-            <div key={i} className="bg-white p-4 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 text-center">
+            <div key={i} className="bg-white p-4 rounded-4xl border border-slate-100 shadow-xl shadow-slate-200/50 text-center">
               <div className="bg-slate-50 w-7 h-7 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <m.icon className="text-blue-600" size={18} />
               </div>

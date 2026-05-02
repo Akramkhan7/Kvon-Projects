@@ -36,7 +36,7 @@ const Navbar = () => {
         <li><NavLink to="/flights" className={linkClass}>Flights</NavLink></li>
         <li><NavLink to="/hotels" className={linkClass}>Hotels</NavLink></li>
         <li><NavLink to="/visa" className={linkClass}>Visa</NavLink></li>
-        <li><NavLink to="/currency" className={linkClass}>Currency</NavLink></li>
+        <li><NavLink to="/forex" className={linkClass}>Forex</NavLink></li>
         <li><NavLink to="/insurance" className={linkClass}>Insurance</NavLink></li>
         <li><NavLink to="/planner" className={linkClass}>Planner</NavLink></li>
       </ul>
@@ -63,7 +63,6 @@ const Navbar = () => {
             <NavLink to="/about" className="block px-4 py-3 hover:bg-blue-50">About Us</NavLink>
             <NavLink to="/contact" className="block px-4 py-3 hover:bg-blue-50">Contact Us</NavLink>
             <NavLink to="/testimonials" className="block px-4 py-3 hover:bg-blue-50">Testimonials</NavLink>
-            <NavLink to="/career" className="block px-4 py-3 hover:bg-blue-50">Career</NavLink>
           </div>
         )}
 
